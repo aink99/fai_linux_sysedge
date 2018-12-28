@@ -24,10 +24,10 @@ platforms:
 #    intermediate_instructions:
 #      - RUN /usr/bin/apt-get update
 
-- name:  kitchen-ol7
+- name: kitchen-ol7
 
 suites:
-  - name: fai_linux_sysedge_
+  - name: fai-linux-sysedge
     run_list:
       - recipe[fai_linux_sysedge::default]
      #- recipe[test_cookbook::default]
