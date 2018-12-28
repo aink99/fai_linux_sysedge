@@ -1,1 +1,4 @@
-default['sysedge']['redhat']['src_url'] = 'http://5d13447a31c61f939a4e-e45ab86b13117ef2f65896a457f615df.r63.cf2.rackcdn.com/sysedge_5.6_x86.tgz'
+default['fai_linux_sysedge']['src_url'] = 'https://glpi.fujitsucanada.net/downloads/Linux_x86_58.tar.gz'
+default['fai_linux_sysedge']['download_dir'] = '/tmp'
+default['fai_linux_sysedge']['target_dir'] = '/tmp/sysedge'
+default['fai_linux_sysedge']['snmp_read'] = 'C@unicenter3'

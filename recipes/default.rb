@@ -14,9 +14,9 @@ when 'redhat', 'centos', 'fedora', 'oracle'
 end
 
 # Download and extract sysedge client
-tar_extract 'https://glpi.fujitsucanada.net/downloads/Linux_x86_58.tar.gz' do
-  download_dir '/tmp'
-  target_dir '/tmp/sysedge'
+tar_extract node['fai_linux_sysedge']['src_url'] do
+  download_dir node['fai_linux_sysedge']['download_dir']
+  target_dir node['fai_linux_sysedge']['target_dir']
 end
 
 # Check if tmp is a mounted file system
@@ -33,7 +33,8 @@ execute 'tmp-mount-exec' do
   only_if "exectue[check-tmp]"
 end
 
+# Install the sysedge client
 execute 'install-sysedge' do
-  cwd '/tmp/sysedge' + "/Linux_x86/CA_SystemEDGE_Core"
-  command "sh ca-setup.sh /e tmp/sysedge_install.out /t EULA_ACCEPTED=1 CASE_SNMP_READ_COMMUNITY=C@unicenter3 CASE_SNMP_PORT=1691 CASE_INSTALL_DOCS=0 > /dev/null 2>&1"
+  cwd node['fai_linux_sysedge']['target_dir'] + "/Linux_x86/CA_SystemEDGE_Core"
+  command "sh ca-setup.sh /e tmp/sysedge_install.out /t EULA_ACCEPTED=1 CASE_SNMP_READ_COMMUNITY=" + node['fai_linux_sysedge']['snmp_read'] + "CASE_SNMP_PORT=1691 CASE_INSTALL_DOCS=0 > /dev/null 2>&1"
 end
