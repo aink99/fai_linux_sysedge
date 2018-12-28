@@ -1,6 +1,6 @@
 name 'fai_linux_sysedge'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Sebastien Chartrand'
+maintainer_email 'sebastien.chartrand@fujitsu.com'
 license 'All Rights Reserved'
 description 'Installs/Configures fai_linux_sysedge'
 long_description 'Installs/Configures fai_linux_sysedge'
@@ -11,10 +11,12 @@ chef_version '>= 13.0'
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when
 # uploaded to a Supermarket.
 #
-# issues_url 'https://github.com/<insert_org_here>/fai_linux_sysedge/issues'
+issues_url 'https://github.com/aink99/fai_linux_sysedge/issues'
 
 # The `source_url` points to the development repository for this cookbook.  A
 # `View Source` link will be displayed on this cookbook's page when uploaded to
 # a Supermarket.
 #
-# source_url 'https://github.com/<insert_org_here>/fai_linux_sysedge'
+source_url 'https://github.com/aink99/fai_linux_sysedge'
+
+depends 'tar', '~> 2.2.0'
