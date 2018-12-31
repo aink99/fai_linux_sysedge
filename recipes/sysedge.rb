@@ -23,8 +23,7 @@ end
 execute 'tmp-mount-exec' do
   cwd '/tmp'
   command 'mount -o remount,exec /tmp'
-  node.default['fai_linux_sysedge']['target_tmp_noexec'] = "true"
-  only_if "mount -l | egrep -E '\s/tmp\s.*noexec'"
+  only_if "mount -l | egrep -E '\s/tmp\s.*noexec' && touch /tmp/sysedge_tmp_noexec"
 end
 
 # Install the sysedge client
@@ -33,11 +32,14 @@ execute 'install-sysedge' do
   command "sh ca-setup.sh /e /tmp/sysedge_install.out /t EULA_ACCEPTED=1 CASE_SNMP_READ_COMMUNITY=" + node['fai_linux_sysedge']['snmp_read'] + "CASE_SNMP_PORT=1691 CASE_INSTALL_DOCS=0 > /dev/null 2>&1"
 end
 
+target_tmp_noexec = false
 # Make sure the file system is mounted with noexec if it was the case previsously
 execute 'tmp-mount-noexec' do
   cwd '/tmp'
   command 'mount -o remount,noexec /tmp'
-  only_if do
-    node['fai_linux_sysedge']['target_tmp_noexec'] == 'true'
-  end
+  only_if  { ::File.exist? '/tmp/sysedge_tmp_noexec' }
+end
+
+file '/tmp/sysedge_tmp_noexec' do
+  action :delete
 end
