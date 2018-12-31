@@ -1,0 +1,42 @@
+---
+driver:
+        name: vagrant
+        #name: docker
+  #  privileged: true # because Docker and SystemD/Upstart
+
+provisioner:
+  name: ansible_playbook
+  hosts: test-kitchen
+  #ansible_verbose: true
+  #ansible_inventory: inventory/hosts_ssh
+  ansible_verbosity: 2
+  #ansible_playbook_command: -e con=true
+  require_ansible_repo: true
+  require_ansible_omnibus: false
+  require_chef_for_busser: false
+  # starting playbook is at: test/integration/default/default.yml
+  #  ansible_extra_flags: '-e "con=true"'
+  #extra_vars:
+  #  con: true
+
+transport:
+  # async bug scp must had this line
+  max_ssh_sessions: 6
+
+
+
+verifier:
+  name: inspec
+
+platforms:
+- name: oracle-7
+  #  driver:
+  # image: centos/systemd
+  # pid_one_command: /bin/systemd
+#    intermediate_instructions:
+#      - RUN /usr/bin/apt-get update
+
+ #- name: centos-7
+
+suites:
+  - name: default
