@@ -6,6 +6,7 @@ driver:
   #public_key_path: "~/.ssh/id_rsa.pub" #Default
   username: root
   password: kitchen # driver works onliy witth ssh keys
+  profile: full_access
 
 
 provisioner:
@@ -25,6 +26,7 @@ platforms:
 #      - RUN /usr/bin/apt-get update
 
 - name: kitchen-ol7
+- name: kitchen-ol6
 
 suites:
   - name: fai-linux-sysedge

@@ -1,5 +1,5 @@
 # Cookbook:: fai_linux_sysedge
-# Recipe:: default
+# Recipe:: sysedge
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
@@ -28,7 +28,7 @@ end
 # Make sure the file system is mounted with exec
 execute 'tmp-mount-exec' do
   cwd '/tmp'
-  command "mount -o remount,exec /tmp"
+  command 'mount -o remount,exec /tmp'
   only_if "exectue[check-tmp]"
 end
 
@@ -38,10 +38,9 @@ execute 'install-sysedge' do
   command "sh ca-setup.sh /e tmp/sysedge_install.out /t EULA_ACCEPTED=1 CASE_SNMP_READ_COMMUNITY=" + node['fai_linux_sysedge']['snmp_read'] + "CASE_SNMP_PORT=1691 CASE_INSTALL_DOCS=0 > /dev/null 2>&1"
 end
 
-
 # Make sure the file system is mounted with noexec if it was the case previsously
 execute 'tmp-mount-noexec' do
   cwd '/tmp'
-  command "mount -o remount,noexec /tmp"
-  only_if "exectue[check-tmp]"
+  command 'mount -o remount,noexec /tmp'
+  only_if 'exectue[check-tmp'
 end
