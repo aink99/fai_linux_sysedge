@@ -36,5 +36,5 @@ end
 execute 'tmp-mount-noexec' do
   cwd '/tmp'
   command 'mount -o remount,noexec /tmp'
-  only_if 'exectue[check-tmp'
+  only_if 'exectue[tmp-mount-exec]'
 end
