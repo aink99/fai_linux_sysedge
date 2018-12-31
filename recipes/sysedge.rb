@@ -18,18 +18,12 @@ tar_extract node['fai_linux_sysedge']['src_url'] do
   target_dir node['fai_linux_sysedge']['target_dir']
 end
 
-# Check if tmp is a mounted file system and has a noexec
-execute 'check-tmp' do
-  cwd '/tmp'
-  command "mount -l | egrep -E '\s/tmp\s.*noexec'"
-  returns [1]
-end
 
 # Make sure the file system is mounted with exec
 execute 'tmp-mount-exec' do
   cwd '/tmp'
   command 'mount -o remount,exec /tmp'
-  only_if "exectue[check-tmp]"
+  only_if "mount -l | egrep -E '\s/tmp\s.*noexec'"
 end
 
 # Install the sysedge client
