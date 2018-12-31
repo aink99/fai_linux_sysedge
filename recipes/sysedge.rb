@@ -23,7 +23,7 @@ end
 execute 'tmp-mount-exec' do
   cwd '/tmp'
   command 'mount -o remount,exec /tmp'
-  node['fai_linux_sysedge']['target_tmp_noexec'] = "true"
+  node.default['fai_linux_sysedge']['target_tmp_noexec'] = "true"
   only_if "mount -l | egrep -E '\s/tmp\s.*noexec'"
 end
 
@@ -37,5 +37,7 @@ end
 execute 'tmp-mount-noexec' do
   cwd '/tmp'
   command 'mount -o remount,noexec /tmp'
-  only_if  node['fai_linux_sysedge']['target_tmp_noexec'] == 'true'
+  only_if do
+    node['fai_linux_sysedge']['target_tmp_noexec'] == 'true'
+  end
 end
