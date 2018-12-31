@@ -29,7 +29,7 @@ end
 # Install the sysedge client
 execute 'install-sysedge' do
   cwd node['fai_linux_sysedge']['target_dir'] + "/Linux_x86/CA_SystemEDGE_Core"
-  command "sh ca-setup.sh /e tmp/sysedge_install.out /t EULA_ACCEPTED=1 CASE_SNMP_READ_COMMUNITY=" + node['fai_linux_sysedge']['snmp_read'] + "CASE_SNMP_PORT=1691 CASE_INSTALL_DOCS=0 > /dev/null 2>&1"
+  command "sh ca-setup.sh /e /tmp/sysedge_install.out /t EULA_ACCEPTED=1 CASE_SNMP_READ_COMMUNITY=" + node['fai_linux_sysedge']['snmp_read'] + "CASE_SNMP_PORT=1691 CASE_INSTALL_DOCS=0 > /dev/null 2>&1"
 end
 
 # Make sure the file system is mounted with noexec if it was the case previsously
