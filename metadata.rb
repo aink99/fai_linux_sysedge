@@ -4,7 +4,7 @@ maintainer_email 'sebastien.chartrand@fujitsu.com'
 license 'All Rights Reserved'
 description 'Installs/Configures fai_linux_sysedge'
 long_description 'Installs/Configures fai_linux_sysedge'
-version '0.1.0'
+version '1.0.0'
 chef_version '>= 13.0'
 
 # The `issues_url` points to the location where issues for this cookbook are
