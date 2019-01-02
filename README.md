@@ -1,6 +1,6 @@
 # fai_linux_sysedge
 
-This cookbok will downloads a sysedge tarball and install it. It will no do anything if /etc/init.d/CA-SystemEDGE file is present.
+This cookbok will downloads a sysedge tarball and install it. It will install and upgrade the following packages : 'glibc.i686 libstdc++.i686 libstdc++ glibc psmisc net-tools'. It also remount /tmp , if it's mounted with noexec, and set it back . If a software firewall is running (iptables or firewalld) acl wil be added .It will not do anything if /etc/init.d/CA-SystemEDGE file is present.
 
 
 ## Requirements
