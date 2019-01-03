@@ -7,7 +7,8 @@ driver:
 
 provisioner:
   product_name: chef
-  #nstall_strategy: skip # we have the chef client installed
+  install_strategy: skip # we have the chef client installed
+  #Custom box https://scotch.io/tutorials/how-to-create-a-vagrant-base-box-from-an-existing-one
   #require_chef_omnibus: false   # we have the chef client installed !#old way
 
 
@@ -17,7 +18,9 @@ verifier:
 
 platforms:
 - name: oracle-6
-- name: oracle-7
+  driver:
+    box: kitchenol6
+#- name: oracle-7
   #  driver:
   # image: centos/systemd
   # pid_one_command: /bin/systemd
