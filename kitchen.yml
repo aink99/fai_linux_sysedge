@@ -20,7 +20,9 @@ platforms:
 - name: oracle-6
   driver:
     box: kitchenol6
-#- name: oracle-7
+- name: oracle-7
+  driver:
+    box: kitchenol7
   #  driver:
   # image: centos/systemd
   # pid_one_command: /bin/systemd
