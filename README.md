@@ -28,7 +28,10 @@ Generally used attributes. See attributes/default.rb.
 ###  `fai_linux_sysedge::default`
 
 
-node['fai_linux_sysedge']['src_url'] - The source remote URL.
-node['fai_linux_sysedge']['download_dir'] - Directory to which tarball is downloaded.
-node['fai_linux_sysedge']['target_dir']  - Directory to extract into.
-node['fai_linux_sysedge']['snmp_read']  - Set snmp read commnunity string.
+  node['fai_linux_sysedge']['src_url'] - The source remote URL.
+  
+  node['fai_linux_sysedge']['download_dir'] - Directory to which tarball is downloaded.
+  
+  node['fai_linux_sysedge']['target_dir']  - Directory to extract into.
+  
+  node['fai_linux_sysedge']['snmp_read']  - Set snmp read commnunity string.
