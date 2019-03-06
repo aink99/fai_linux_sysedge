@@ -38,4 +38,8 @@ suites:
     verifier:
       inspec_tests:
         - test/integration/default
-    attributes:
+          #attributes: { vtest: "bar" }#works
+    attributes:  
+      fai_linux_sysedge:
+          version: "58"
+          force: "true"
