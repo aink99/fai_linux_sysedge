@@ -4,3 +4,5 @@ default['fai_linux_sysedge']['target_dir'] = '/tmp/sysedge'
 default['fai_linux_sysedge']['snmp_read'] = 'C@unicenter3'
 default['fai_linux_sysedge']['upgrade'] = 'false'
 default['fai_linux_sysedge']['version'] = '59'
+default['fai_linux_sysedge']['force'] = 'false'
+
