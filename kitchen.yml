@@ -39,7 +39,7 @@ suites:
       inspec_tests:
         - test/integration/default
           #attributes: { vtest: "bar" }#works
-    attributes:  
+    attributes:
       fai_linux_sysedge:
-          version: "58"
+          version: "59"
           force: "true"
