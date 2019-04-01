@@ -7,7 +7,7 @@
 case node['platform']
 when 'redhat', 'centos', 'fedora', 'oracle'
 
-  package %w(glibc.i686 libstdc++.i686 libstdc++ glibc psmisc net-tools) do
+  package %w(glibc.i686 libstdc++.i686 libstdc++ glibc psmisc net-tools curses-libs.i686) do
     action :upgrade
   end
 end
